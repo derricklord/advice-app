@@ -1,0 +1,21 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t advice-app .
+
+deploy:
+  provider: elasticbeanstalk
+  region: "us-west-1"
+  app: "advice"
+  env: "advice-env"
+  bucket_name: "elasticbeanstalk-us-west-1-395126255236"
+  bucket_path: "advice"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: "$AWS_SECRET_KEY"
+
+  
