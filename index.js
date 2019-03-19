@@ -20,7 +20,7 @@ const advice = [
 ];
 
 app.get('/', (req, res)=>{
-	res.json({advice: Math.floor(Math.random() * advice.length)});
+	res.json({advice: advice[Math.floor(Math.random() * advice.length)]});
 });
 
 app.get('/health', (req, res)=>{
