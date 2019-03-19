@@ -26,6 +26,10 @@ app.get('/', (req, res)=>{
 	res.json({advice: Advice[randomIndex]});
 });
 
+app.get('/hello', (req, res)=>{
+	res.send('Hello World!');
+});
+
 app.listen(3000, ()=>{
 	console.log(`Server started on port 3000`);
 });
