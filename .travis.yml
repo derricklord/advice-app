@@ -12,7 +12,7 @@ deploy:
   provider: elasticbeanstalk
   region: "us-west-1"
   app: "advice"
-  env: "advice-env"
+  env: "advice-dev"
   bucket_name: "elasticbeanstalk-us-west-1-395126255236"
   bucket_path: "advice"
   on:
