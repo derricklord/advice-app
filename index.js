@@ -10,7 +10,9 @@ const Advice = [
 	'Take it easy!',
 	'Put it off till tomorrow',
 	'Seize the day',
-	'Set it and forget it'
+	'Set it and forget it',
+	'Put 5 on it!',
+	'Meditate on it :)'
 ];
 
 app.use(helmet());
