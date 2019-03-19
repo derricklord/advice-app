@@ -5,7 +5,11 @@ const morgan = require('morgan');
 
 
 const app = express();
-const Advice = [
+app.use(helmet());
+app.use(cors());
+app.use(morgan('dev'));
+
+const advice = [
 	'Go all out!',
 	'Take it easy!',
 	'Put it off till tomorrow',
@@ -15,21 +19,12 @@ const Advice = [
 	'Meditate on it :)'
 ];
 
-app.use(helmet());
-app.use(cors());
-app.use(morgan('dev'));
+app.get('/', (req, res)=>{
+	res.json({advice: Math.floor(Math.random() * advice.length)});
+});
 
 app.get('/health', (req, res)=>{
 	res.send('healthy');
-});
-
-app.get('/', (req, res)=>{
-	const randomIndex = Math.floor(Math.random() * Advice.length);
-	res.json({advice: Advice[randomIndex]});
-});
-
-app.get('/hello', (req, res)=>{
-	res.send('Hello World!');
 });
 
 app.listen(3000, ()=>{
